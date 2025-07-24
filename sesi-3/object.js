@@ -4,19 +4,19 @@ const books = [
     id: 1,
     title: 'Laskar Pelangi',
     author: 'Andrea Hirata',
-    genre: ['Fiction', 'Education'],
+    genres: ['Fiction', 'Education'],
   },
   {
     id: 2,
-    title: 'Bumi Manuasia',
+    title: 'Bumi Manusia',
     author: 'Pramoedya Ananta Toer',
-    genre: ['Fiction', 'Historical'],
+    genres: ['Fiction', 'Historical'],
   },
   {
     id: 3,
     title: 'Edensor',
     author: 'Andrea Hirata',
-    genre: ['Fiction', 'Advanture'],
+    genres: ['Fiction', 'Advanture'],
   },
 ];
 
@@ -41,6 +41,7 @@ const bookByID = books.find((b) => b.id === 1);
 console.log(bookByID);
 
 // WHERE author = Andrea Hirata
+console.log(`WHERE author = Andrea Hirata`);
 const bookAuthor = 'Andrea';
 const bookByAuthor = books.filter(
   (b) => b.author.toLowerCase() === bookAuthor.toLowerCase()
@@ -48,8 +49,20 @@ const bookByAuthor = books.filter(
 console.log(bookByAuthor);
 
 // WHERE author LIKE Andrea Hirata
+console.log(`WHERE author LIKE Andrea Hirata`);
 const bookAuthor2 = 'Andrea';
 const bookByAuthorLike = books.filter((b) =>
   b.author.toLowerCase().includes(bookAuthor2.toLowerCase())
 );
 console.log(bookByAuthorLike);
+
+// WHERE genre = 'Fiction'
+console.log(`WHERE genre = 'Historical'`);
+const genreKeyword = 'Historical';
+const bookByGenre = books.filter((b) => {
+  for (let i = 0; i < b.genres.length; i++) {
+    if (b.genres[i] === genreKeyword) return true;
+  }
+  return false;
+});
+console.log(bookByGenre);
