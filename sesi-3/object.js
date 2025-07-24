@@ -49,20 +49,24 @@ const bookByAuthor = books.filter(
 console.log(bookByAuthor);
 
 // WHERE author LIKE Andrea Hirata
-console.log(`WHERE author LIKE Andrea Hirata`);
+console.log(`WHERE author LIKE Andrea`);
 const bookAuthor2 = 'Andrea';
-const bookByAuthorLike = books.filter((b) =>
-  b.author.toLowerCase().includes(bookAuthor2.toLowerCase())
-);
+const bookByAuthorLike = books.filter((b) => {
+  return b.author.toLowerCase().includes(bookAuthor2.toLowerCase());
+});
 console.log(bookByAuthorLike);
 
 // WHERE genre = 'Fiction'
 console.log(`WHERE genre = 'Historical'`);
 const genreKeyword = 'Historical';
 const bookByGenre = books.filter((b) => {
-  for (let i = 0; i < b.genres.length; i++) {
-    if (b.genres[i] === genreKeyword) return true;
-  }
-  return false;
+  // TRADISIONAL
+  // for (let i = 0; i < b.genres.length; i++) {
+  //   if (b.genres[i] === genreKeyword) return true;
+  // }
+  // return false;
+
+  // MODERN
+  return b.genres.some((g) => g === genreKeyword);
 });
 console.log(bookByGenre);
