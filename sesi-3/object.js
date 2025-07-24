@@ -48,7 +48,7 @@ const bookByAuthor = books.filter(
 );
 console.log(bookByAuthor);
 
-// WHERE author LIKE Andrea Hirata
+// WHERE author LIKE Andrea
 console.log(`WHERE author LIKE Andrea`);
 const bookAuthor2 = 'Andrea';
 const bookByAuthorLike = books.filter((b) => {
